@@ -32,6 +32,13 @@ const Board = () => {
 
 	return (
 		<div className="my-6 flex flex-col items-center justify-center">
+			{submissions.map((submission, loopIndex) => (
+				<Row key={loopIndex}>
+					{submission.split('').map((letter, loopIndex) => (
+						<Letter key={loopIndex}>{letter}</Letter>
+					))}
+				</Row>
+			))}
 			<Row>
 				<Letter>{currentSubmission[0]}</Letter>
 				<Letter>{currentSubmission[1]}</Letter>

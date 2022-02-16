@@ -6,12 +6,21 @@ const keys: Array<Array<string>> = [
 
 const Keyboard = () => {
 	return (
-		<div className="p-4 pt-2">
-			{keys.map((keyRow) =>
-				keyRow.map((key) => {
-					return <div key={key}>{key}</div>;
-				})
-			)}
+		<div className="flex flex-col items-center">
+			{keys.map((keyRow, loopIndex) => (
+				<div className="flex" key={loopIndex}>
+					{keyRow.map((key) => {
+						return (
+							<button
+								key={key}
+								className="m-1 flex items-center justify-center border py-3 px-4 leading-none"
+							>
+								{key}
+							</button>
+						);
+					})}
+				</div>
+			))}
 		</div>
 	);
 };

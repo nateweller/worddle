@@ -49,6 +49,9 @@ const Keyboard = () => {
 
 	const handleKeyboardInput = useCallback(
 		(value: string) => {
+			if (submissions.length === 6) return; // game over
+			if (submissions.indexOf(word) >= 0) return; // game won
+
 			switch (value) {
 				case 'Enter':
 					if (dictionary.indexOf(currentSubmission.toLowerCase()) === -1) {
@@ -65,7 +68,7 @@ const Keyboard = () => {
 					dispatch(addLetter(value));
 			}
 		},
-		[currentSubmission, dispatch]
+		[currentSubmission, dispatch, submissions, word]
 	);
 
 	useEffect(() => {

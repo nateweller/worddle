@@ -5,6 +5,7 @@ import { wordles } from './data/words';
 
 import Board from './components/board';
 import Keyboard from './components/keyboard';
+import GameOver from './components/gameOver/gameOver';
 
 import './App.css';
 
@@ -17,10 +18,11 @@ function App() {
 		const day = Math.floor((today.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24));
 
 		dispatch(setWord(wordles[day]));
-	}, []);
+	}, [dispatch]);
 
 	return (
 		<>
+			<GameOver />
 			<Board />
 			<Keyboard />
 		</>

@@ -44,7 +44,13 @@ const Keyboard = () => {
 		const isYellow = closeLetters.some((letter) => letter === key);
 		const isGreen = correctLetters.some((letter) => letter === key);
 
-		return isGreen ? 'bg-green-500' : isYellow ? 'bg-yellow-500' : isGrey ? 'bg-gray-200' : '';
+		return isGreen
+			? 'bg-green-500 dark:bg-green-500'
+			: isYellow
+			? 'bg-yellow-500 dark:bg-yellow-500'
+			: isGrey
+			? 'bg-gray-200 dark:bg-gray-900 dark:text-gray-600'
+			: 'bg-white dark:bg-gray-800';
 	};
 
 	const handleKeyboardInput = useCallback(
@@ -88,10 +94,11 @@ const Keyboard = () => {
 							<button
 								key={key}
 								onClick={() => handleKeyboardInput(key)}
-								className={`m-1 flex items-center justify-center border py-3 px-4 leading-none ${getKeyStateClassNames(
-									key,
-									loopIndex
-								)}`}
+								className={`
+									m-1 flex items-center justify-center rounded-md border
+									py-3 px-4 font-bold uppercase leading-none hover:scale-105 hover:shadow-sm
+									dark:border-black  dark:text-white
+									${getKeyStateClassNames(key, loopIndex)}`}
 							>
 								{key}
 							</button>

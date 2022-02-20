@@ -12,13 +12,23 @@ const GameOver: React.FC = () => {
 		return (
 			<>
 				<Confetti />
-				<div className="my-4 text-center font-bold">You Won!</div>
+				<div className="absolute w-full text-center">
+					<div className="my-4 inline-block rounded-md bg-green-500 px-3 py-1 text-center font-bold text-white">
+						You Won!
+					</div>
+				</div>
 			</>
 		);
 	}
 
 	if (gameLost) {
-		return <div className="my-4 text-center font-bold">{word}</div>;
+		return (
+			<div className="absolute w-full text-center">
+				<div className="my-4 mx-auto inline-block rounded-md bg-red-500 px-3 py-1 font-bold text-white">
+					{word}
+				</div>
+			</div>
+		);
 	}
 
 	return null;

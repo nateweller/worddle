@@ -7,8 +7,6 @@ import Board from './components/board';
 import Keyboard from './components/keyboard';
 import GameOver from './components/gameOver/gameOver';
 
-import './App.css';
-
 function App() {
 	const dispatch = useAppDispatch();
 
@@ -21,11 +19,11 @@ function App() {
 	}, [dispatch]);
 
 	return (
-		<>
+		<div className="min-h-full border border-transparent dark:bg-gray-900">
 			<GameOver />
 			<Board />
 			<Keyboard />
-		</>
+		</div>
 	);
 }
 

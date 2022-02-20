@@ -16,13 +16,20 @@ const Letter: React.FC<LetterProps> = ({ letter = '', index }) => {
 	let stateClassName = '';
 	if (letter && index !== undefined) {
 		if (word[index] === letter) {
-			stateClassName += ' bg-green-500';
+			stateClassName += ' bg-green-500 border-green-400 dark:border-green-800';
 		} else if (word.indexOf(letter) >= 0) {
-			stateClassName += ' bg-yellow-500';
+			stateClassName += ' bg-yellow-500 border-yellow-400 dark:border-yellow-900';
+		} else {
+			stateClassName += ' bg-gray-200 border-gray-100';
 		}
 	}
 	return (
-		<div className={`m-0.5 flex h-10 w-10 items-center justify-center border ${stateClassName}`}>
+		<div
+			className={`
+			m-1 flex h-14 w-14 items-center justify-center rounded-md border-2 text-xl font-bold uppercase dark:border-gray-500 dark:text-white
+			${stateClassName}
+		`}
+		>
 			{letter}
 		</div>
 	);
@@ -60,7 +67,7 @@ const Board = () => {
 	};
 
 	return (
-		<div className="my-6 flex flex-col items-center justify-center">
+		<div className="my-6 mt-16 flex flex-col items-center justify-center">
 			{submissions.map((submission, loopIndex) => (
 				<Row key={loopIndex}>
 					{submission.split('').map((letter, loopIndex) => (
